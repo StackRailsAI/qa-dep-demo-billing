@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: billing-service
+  description: QA fixture - billing service called by shop.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: qa-platform
