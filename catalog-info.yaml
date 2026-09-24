@@ -3,6 +3,21 @@ kind: Component
 metadata:
   name: billing-service
   description: QA fixture - billing service called by shop.
+  annotations:
+    # Root of this repository; invoice-archive below owns its own subdirectory.
+    backstage.io/source-location: url:https://github.com/StackRailsAI/qa-dep-demo-billing/tree/main
+spec:
+  type: service
+  lifecycle: experimental
+  owner: qa-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: invoice-archive
+  description: QA fixture - a second service that also serves POST /refunds, so shop's call to it is ambiguous by route.
+  annotations:
+    backstage.io/source-location: url:https://github.com/StackRailsAI/qa-dep-demo-billing/tree/main/invoice-archive
 spec:
   type: service
   lifecycle: experimental
