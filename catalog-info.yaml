@@ -1,4 +1,12 @@
 apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: billing
+  description: QA fixture - the billing system both services belong to, owned by qa-platform.
+spec:
+  owner: qa-platform
+---
+apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: billing-service
@@ -10,6 +18,10 @@ spec:
   type: service
   lifecycle: experimental
   owner: qa-platform
+  system: billing
+  # A declared dependency, so the graph has a component with known DEPENDS_ON targets.
+  dependsOn:
+    - component:invoice-archive
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -22,3 +34,4 @@ spec:
   type: service
   lifecycle: experimental
   owner: qa-platform
+  system: billing
