@@ -35,3 +35,12 @@ spec:
   lifecycle: experimental
   owner: qa-platform
   system: billing
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: qa-platform
+  description: QA fixture - the team that owns the billing system. Declared here because an owner the catalog never declares is dropped as unknown, leaving the system with no owning team.
+spec:
+  type: team
+  children: []
