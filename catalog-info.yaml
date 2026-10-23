@@ -37,6 +37,17 @@ spec:
   system: billing
 ---
 apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: billing-docs
+  description: QA fixture - catalog-only documentation for the billing system. No source location and no code, and no policy applies to it (the e2e seed scopes its one policy to billing-service and invoice-archive), so it stays never-evaluated; portal E2E Flow 18 asks chat for its score and expects "not evaluated", never 0.
+spec:
+  type: documentation
+  lifecycle: experimental
+  owner: qa-platform
+  system: billing
+---
+apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: qa-platform
