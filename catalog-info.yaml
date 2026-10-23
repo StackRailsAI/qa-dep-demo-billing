@@ -40,7 +40,10 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: billing-docs
-  description: QA fixture - catalog-only documentation for the billing system. No source location and no code, and no policy applies to it (the e2e seed scopes its one policy to billing-service and invoice-archive), so it stays never-evaluated; portal E2E Flow 18 asks chat for its score and expects "not evaluated", never 0.
+  description: QA fixture - documentation for the billing system, in docs/ (Markdown only). No policy applies to it (the e2e seed scopes its one policy to billing-service and invoice-archive), so it stays never-evaluated; portal E2E Flow 18 asks chat for its score and expects "not evaluated", never 0.
+  annotations:
+    # Its own subdirectory. Without one it anchors at this file's directory, the repo root, and ties with billing-service for the repository's files.
+    backstage.io/source-location: url:https://github.com/StackRailsAI/qa-dep-demo-billing/tree/main/docs
 spec:
   type: documentation
   lifecycle: experimental
