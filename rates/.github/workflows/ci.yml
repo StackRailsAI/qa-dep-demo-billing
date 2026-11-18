@@ -1,0 +1,9 @@
+# QA fixture: the pipeline file that makes the e2e seed's cicd-has-test-stage apply to billing-rates
+# (plugin agent test scenario needs-setup-is-not-a-failure). It never runs: it is not in the root .github.
+name: billing-rates
+on: push
+jobs:
+  test:
+    runs-on: [self-hosted]
+    steps:
+      - run: npx tsc --noEmit rates.ts

@@ -79,6 +79,20 @@ spec:
   system: billing
 ---
 apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: billing-rates
+  description: QA fixture - a TypeScript service with an interface (RateSource) and two implementors, and a pipeline file but no stored source. The e2e seed scopes cicd-has-test-stage to it alone, so its one rule needs stored source and it reads "needs setup", never failing or passing.
+  annotations:
+    # Its own subdirectory, like invoice-archive, so its files are not billing-service's.
+    backstage.io/source-location: url:https://github.com/StackRailsAI/qa-dep-demo-billing/tree/main/rates
+spec:
+  type: service
+  lifecycle: experimental
+  owner: qa-platform
+  system: billing
+---
+apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: qa-platform
