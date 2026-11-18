@@ -65,6 +65,20 @@ spec:
   system: billing
 ---
 apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: billing-ledger
+  description: QA fixture - a Go service, so the plugin agent test can ask whether a rule for another language applies to it.
+  annotations:
+    # Its own subdirectory, like invoice-archive, so its Go files are not billing-service's.
+    backstage.io/source-location: url:https://github.com/StackRailsAI/qa-dep-demo-billing/tree/main/ledger
+spec:
+  type: service
+  lifecycle: experimental
+  owner: qa-platform
+  system: billing
+---
+apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: qa-platform
